@@ -1,6 +1,10 @@
-<bold><%= @doctor.name %></bold> from the <bold><%= @doctor.department %></bold> department has the following appointmnents:
-<ul>
-<% @doctor.appointments.each do |appointment| %>
-  <li><%= appointment.appointment_datetime.strftime("%B %d, %Y at %k:%M") %> - <%= link_to appointment.patient.name, patient_path(appointment.patient) %></li>
+
+<h2><%= @doctor.name %></h2>
+<p>
+Appointments <%= @doctor.appointments.each do |app| %>
+    <li><%= app.date_format %></li>
+    <li><%= link_to app.patient.name, patient_path(app) %></li>
+
 <% end %>
-</ul>
+
+</p>
